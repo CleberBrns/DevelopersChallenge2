@@ -5,11 +5,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{2291319C-4688-42E2-B4DD-9E8C62AF2C2E}</ProjectGuid>
+    <ProjectGuid>{82A77448-1DBC-4559-861C-0E992133B86C}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Tbv.Data.Repository</RootNamespace>
-    <AssemblyName>Tbv.Data.Repository</AssemblyName>
+    <RootNamespace>Tbv.Data.Entity</RootNamespace>
+    <AssemblyName>Tbv.Data.Entity</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -51,22 +51,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BankAccountRepository.cs" />
+    <Compile Include="EntityContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Tbv.Data.Entity\Tbv.Data.Entity.csproj">
-      <Project>{82A77448-1DBC-4559-861C-0E992133B86C}</Project>
-      <Name>Tbv.Data.Entity</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Tbv.Models\Tbv.Models.csproj">
-      <Project>{51999EBC-A9B6-49DA-BE79-6BD6512E67A2}</Project>
-      <Name>Tbv.Models</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Tbv.Models\Tbv.Models.csproj">
+      <Project>{51999EBC-A9B6-49DA-BE79-6BD6512E67A2}</Project>
+      <Name>Tbv.Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

@@ -1,19 +1,20 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Tbv.Models
+namespace Tbv.Models.DataBase
 {
-    public class BankTransaction
+    public class AccountTransaction
     {
         public long Id { get; set; }
 
         [ForeignKey("BankAccount")]
-        public long BankAccountId { get; set; }
-        public string Type { get; set; }
+        public long IdBankAccount { get; set; }
+        [Column(TypeName = "varchar")]
+        public string TrType { get; set; }
         public DateTime DatePosted { get; set; }
         public decimal Amount { get; set; }
-        public string Description { get; set; }
-
+        [Column(TypeName = "varchar")]
+        public string TrDescription { get; set; }
         public DateTime DateImportation { get; set; }
 
         public virtual BankAccount BankAccount { get; set; }

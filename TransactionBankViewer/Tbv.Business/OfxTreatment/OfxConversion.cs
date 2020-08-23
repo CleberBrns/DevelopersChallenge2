@@ -4,6 +4,7 @@ using System.Globalization;
 using System.Linq;
 using System.Xml.Linq;
 using Tbv.Models;
+using Tbv.Models.DataBase;
 
 namespace Tbv.Business.OfxTreatment
 {
@@ -48,16 +49,16 @@ namespace Tbv.Business.OfxTreatment
                                                }).FirstOrDefault();
 
                     //Read the transactions informations
-                    IEnumerable<BankTransaction> transactions =
+                    IEnumerable<AccountTransaction> transactions =
                         (from c in ofxXElement.Descendants("STMTTRN")
-                         select new BankTransaction
+                         select new AccountTransaction
                          {
-                             Type = c.Element("TRNTYPE").Value,
+                             TrType = c.Element("TRNTYPE").Value,
                              Amount = decimal.Parse(c.Element("TRNAMT").Value,
                                              NumberFormatInfo.InvariantInfo),
                              DatePosted = DateTime.ParseExact(c.Element("DTPOSTED").Value,
                                                  "yyyyMMdd", null),
-                             Description = c.Element("MEMO").Value,
+                             TrDescription = c.Element("MEMO").Value,
                              DateImportation = DateTime.Now
                          });
 

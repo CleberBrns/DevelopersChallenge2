@@ -47,6 +47,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Tbv.Data.Repository\Tbv.Data.Repository.csproj">
+      <Project>{2291319C-4688-42E2-B4DD-9E8C62AF2C2E}</Project>
+      <Name>Tbv.Data.Repository</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Tbv.Models\Tbv.Models.csproj">
       <Project>{51999EBC-A9B6-49DA-BE79-6BD6512E67A2}</Project>
       <Name>Tbv.Models</Name>

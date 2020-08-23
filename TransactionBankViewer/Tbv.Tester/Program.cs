@@ -12,8 +12,10 @@ namespace Tbv.Tester
     {
         static void Main(string[] args)
         {
-            string[] filePaths = Directory.GetFiles(@"C:\Users\WorkStudy\source\repos\ImportOFX\OFX_Files\", "*.ofx", SearchOption.AllDirectories);
-            new AccountBU().GetBankAccounts(filePaths);
+            string[] filePaths = Directory.GetFiles(@"D:\MyProjects\DevelopersChallenge2\OFX\", "*.ofx", SearchOption.AllDirectories);
+
+            AccountBU accountBU = new AccountBU();
+            accountBU.GetBankAccounts(filePaths);
         }
     }
 }
