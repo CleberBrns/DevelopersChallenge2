@@ -24,5 +24,8 @@ namespace Tbv.Models
 
         [NotMapped]
         public string BankId { get; set; }
+
+        [NotMapped]
+        public bool IsAlreadyImported { get; set; }
     }
 }
