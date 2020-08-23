@@ -27,6 +27,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Entity", "Entity", "{989744
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tbv.Data.Entity", "Tbv.Data.Entity\Tbv.Data.Entity.csproj", "{82A77448-1DBC-4559-861C-0E992133B86C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tbv.Presentation.Web", "Tbv.Presentation.Web\Tbv.Presentation.Web.csproj", "{50DA1771-A63A-482D-80DC-AE8D29AF5B58}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -53,6 +55,10 @@ Global
 		{82A77448-1DBC-4559-861C-0E992133B86C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{82A77448-1DBC-4559-861C-0E992133B86C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{82A77448-1DBC-4559-861C-0E992133B86C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{50DA1771-A63A-482D-80DC-AE8D29AF5B58}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{50DA1771-A63A-482D-80DC-AE8D29AF5B58}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{50DA1771-A63A-482D-80DC-AE8D29AF5B58}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{50DA1771-A63A-482D-80DC-AE8D29AF5B58}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -65,6 +71,7 @@ Global
 		{2291319C-4688-42E2-B4DD-9E8C62AF2C2E} = {83EB2C1A-AC27-4815-8880-27DC4E137E04}
 		{98974461-8B0E-46CA-8587-F1F2C7B47DF2} = {21593DE7-C947-4F57-A429-E7CA51CC744B}
 		{82A77448-1DBC-4559-861C-0E992133B86C} = {98974461-8B0E-46CA-8587-F1F2C7B47DF2}
+		{50DA1771-A63A-482D-80DC-AE8D29AF5B58} = {DEE9B6B0-E219-4581-9B25-8A3FE27CC24F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E50F3DD1-2F73-4ECA-B6A5-52DF189C3C77}

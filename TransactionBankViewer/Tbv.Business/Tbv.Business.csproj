@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Account\AccountBU.cs" />
+    <Compile Include="Account\TransactionBankBU.cs" />
     <Compile Include="OfxTreatment\OfxConversion.cs" />
     <Compile Include="OfxTreatment\OfxReader.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

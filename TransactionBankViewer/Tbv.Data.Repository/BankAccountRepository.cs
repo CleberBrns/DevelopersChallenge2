@@ -124,19 +124,10 @@ namespace Tbv.Data.Repository
         /// <param name="initialDate"></param>
         /// <param name="finalDate"></param>
         /// <returns></returns>
-        public List<AccountTransaction> GetTransactionsByFilter(BankAccount bankAccount, DateTime initialDate, DateTime finalDate)
+        public List<AccountTransaction> GetTransactionsByFilter(string bankId, long accountId, DateTime initialDate, DateTime finalDate)
         {
             using (var context = new EntityContext())
             {
-                string bankId = string.Empty;
-                long accountId = 0;
-
-                if (bankAccount != null)
-                {
-                    bankId = bankAccount.BankId;
-                    accountId = bankAccount.AccountId;
-                }
-
                 //Assuring first and last hours from dates
                 initialDate = initialDate.Date;
                 finalDate = finalDate.AddDays(1).AddTicks(-1);

@@ -1,0 +1,132 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+
+<link href="~/Content/bootstrap-datepicker3.css" rel="stylesheet" />
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script src="~/Scripts/bootstrap-datepicker.min.js"></script>
+<script src="~/Scripts/jquery.mask.min.js"></script>
+<script src="~/Scripts/SweetAlert2/sweetalert2.min.js"></script>
+
+
+<div class="container" style="width: 100%; padding:1%">
+    <div class="row well">
+
+        <div class="col-md-12">
+
+            <div class="col-md-2">
+                <h4 class="title">BankId</h4>
+                <input type="text" class="form-control" id="bankIdSearch" />
+            </div>
+
+            <div class="col-md-2">
+                <h4 class="title">AccountId</h4>
+                <input type="text" class="form-control" id="accountIdSearch" />
+            </div>
+
+            <div class="col-md-2">
+                <h4 class="title">Initial Date</h4>
+                <input type="text" class="form-control dateSearch" id="initialDate" />
+            </div>
+
+            <div class="col-md-2">
+                <h4 class="title">Final Date</h4>
+                <input type="text" class="form-control dateSearch" id="finalDate" />
+            </div>
+
+            <div class="col-md-2" style="text-align: right">
+
+                <div style="padding-top: 25%"></div>
+                <button type="button" class="btn btn-primary" id="btnSearch">
+                    Search <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                </button>
+            </div>
+
+            <div class="col-md-2 left">
+
+                <div style="padding-top: 25%"></div>
+                <button type="button" class="btn btn-primary" id="btnExcel">
+                    Excel <span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span>
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+<div class="container" style="width: 100%; padding:1%">
+    <div class="row well">
+
+        <div id="divGrid" />
+
+    </div>
+</div>
+
+<script>
+
+    $('.dateSearch').datepicker({
+        format: "dd/mm/yyyy",
+        autoclose: true
+    });
+
+    $('.dateSearch').mask('99/99/9999', { placeholder: "dd/mm/aaaa" });
+    $('#bankIdSearch').mask('0000');
+    $('#accountIdSearch').mask('000000000000');
+
+    $('#btnSearch').click(function (e) {
+        e.preventDefault();
+
+
+         $.ajax({
+            type: "GET",
+            url: '@Url.Action("TransactionBank", "GetTransactions")',
+             data: {
+                 bankId: $("#bankIdSearch").val(),
+                 accountId: $("#accountIdSearch").val(),
+                 initialDate: $("#initialDate").val(),
+                 finalDate: $("#finalDate").val(),
+             },
+             success: function (result) {
+
+                 if (!result.Error) {
+
+                     $("#divGrid").html(result.Values);
+
+                 }
+                 else {
+
+                     var retorno = result.mensagensRetorno;
+                     swal({
+                         title: '',
+                         text: retorno.MensagemExibicao,
+                         type: 'warning',
+                         confirmButtonColor: '#10386B',
+                         allowOutsideClick: false
+                     });
+                     console.log(retorno.MensagemAnalise);
+                 }
+
+
+            },
+             error: function (jqXHR, textStatus, errorThrown) {
+
+                 swal({
+                     title: '',
+                     text: "Error trying to search data!",
+                     type: "error",
+                     confirmButtonColor: "#10386B",
+                     allowOutsideClick: false
+                 });
+
+                 console.log(errorThrown);
+
+
+            }
+        });
+
+    });
+
+</script>

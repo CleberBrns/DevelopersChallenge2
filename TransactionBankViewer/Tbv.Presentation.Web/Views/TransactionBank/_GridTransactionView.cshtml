@@ -1,0 +1,67 @@
+﻿@model List<Tbv.Models.DataBase.AccountTransaction>
+
+<div style="overflow-x:auto;">
+    <table class="table table-bordered" id="gridTransactions">
+        <thead>
+            <tr>
+                <th>AccountId</th>
+                <th>BankId</th>
+                <th>Type</th>
+                <th>Date</th>
+                <th>Amount</th>
+                <th>Description</th>
+                <th>Importation Date</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @if (Model.Count() > 0)
+            {
+                foreach (var transaction in Model)
+                {
+                    <tr>
+                        <td>
+                            @transaction.AccountId
+                        </td>
+                        <td>
+                            @transaction.BankId
+                        </td>
+                        <td>
+                            @transaction.TrType
+                        </td>
+                        <td>
+                            @transaction.DatePosted.ToString("dd/MM/yyyy")
+                        </td>
+                        <td>
+                            @transaction.Amount.ToString("C")
+                        </td>
+                        <td>
+                            @transaction.TrDescription
+                        </td>
+                        <td>
+                            @transaction.DateImportation.ToString("dd/MM/yyyy HH:mm:ss")
+                        </td>
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr>
+                    <td colspan="4" style="text-align:  center;color:  red;">
+                        There are no Transactions to show
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+
+<script>
+
+    $("#gridTransactions").DataTable({
+
+        "aaSorting": []
+    });
+
+</script>
